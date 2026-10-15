@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CampusKart</title>
+
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+
+<body class="bg-gray-50 text-gray-800">
+
+  <!-- Navbar -->
+  <nav class="bg-indigo-700 text-white p-4 flex flex-col sm:flex-row justify-between items-center gap-4">
+    <h1 class="text-2xl font-bold">CampusKart</h1>
+
+    <div class="flex flex-wrap justify-center gap-4">
+      <a href="#products" class="hover:text-yellow-300">Products</a>
+      <a href="#about" class="hover:text-yellow-300">About</a>
+      <a href="#contact" class="hover:text-yellow-300">Contact</a>
+      <a href="#products" class="font-semibold">
+        Cart: <span id="cart">0</span>
+      </a>
+    </div>
+  </nav>
+
+  <!-- Banner Slider -->
+  <section id="slider"
+    class="relative h-72 sm:h-96 overflow-hidden bg-indigo-800">
+
+    <!-- Slide 1 -->
+    <img class="slide absolute inset-0 w-full h-full object-cover transition-opacity duration-700 opacity-100"
+      src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1600&q=80"
+      alt="College students" onerror="this.style.display='none'">
+
+    <!-- Slide 2 -->
+    <img class="slide absolute inset-0 w-full h-full object-cover transition-opacity duration-700 opacity-0"
+      src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=1600&q=80"
+      alt="Students in classroom"
+      onerror="if(!this.dataset.retry){this.dataset.retry='1';this.src='https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&w=1600&q=80';}else{this.style.display='none';}">
+
+    <!-- Slide 3 -->
+    <img class="slide absolute inset-0 w-full h-full object-cover transition-opacity duration-700 opacity-0"
+      src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1600&q=80"
+      alt="Students studying together" onerror="this.style.display='none'">
+
+    <!-- Slide 4 -->
+    <img class="slide absolute inset-0 w-full h-full object-cover transition-opacity duration-700 opacity-0"
+      src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=1600&q=80"
+      alt="College campus" onerror="this.style.display='none'">
+
+    <!-- Dark overlay and text -->
+    <div class="absolute inset-0 bg-black/50 flex flex-col items-center justify-center text-white text-center p-4">
+
+      <h2 class="text-3xl sm:text-5xl font-bold">
+        Back To College Sale
+      </h2>
+
+      <p class="mt-3 text-base sm:text-xl">
+        Up to 50% off on bags, books and gadgets
+      </p>
+
+      <a
+        href="#products"
+        class="mt-5 bg-yellow-400 text-black px-7 py-3 rounded-lg font-bold hover:bg-yellow-300 transition">
+        Shop Now
+      </a>
+
+    </div>
+
+    <!-- Arrows -->
+    <button id="prev" aria-label="Previous slide"
+      class="absolute left-3 top-1/2 -translate-y-1/2 bg-white/30 hover:bg-white/60 text-white hover:text-black w-10 h-10 rounded-full text-2xl leading-none transition">
+      &#8249;
+    </button>
+    <button id="next" aria-label="Next slide"
+      class="absolute right-3 top-1/2 -translate-y-1/2 bg-white/30 hover:bg-white/60 text-white hover:text-black w-10 h-10 rounded-full text-2xl leading-none transition">
+      &#8250;
+    </button>
+
+    <!-- Dots -->
+    <div id="dots" class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2"></div>
+  </section>
+
+  <!-- Features / Policy Columns -->
+  <section class="bg-white border-b border-gray-200">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-gray-200">
+
+      <!-- Column 1: 7 Day Replacement -->
+      <div class="flex items-center gap-4 p-6 justify-center sm:justify-start">
+        <div class="text-3xl">🔄</div>
+        <div>
+          <h3 class="font-bold text-lg text-indigo-700">7 Day Replacement</h3>
+          <p class="text-sm text-gray-600">Not happy? Replace any product within 7 days.</p>
+        </div>
+      </div>
+
+      <!-- Column 2 -->
+      <div class="flex items-center gap-4 p-6 justify-center sm:justify-start">
+        <div class="text-3xl">🚚</div>
+        <div>
+          <h3 class="font-bold text-lg text-indigo-700">Free Delivery</h3>
+          <p class="text-sm text-gray-600">Free shipping on orders above ₹499.</p>
+        </div>
+      </div>
+
+      <!-- Column 3 -->
+      <div class="flex items-center gap-4 p-6 justify-center sm:justify-start">
+        <div class="text-3xl">🔒</div>
+        <div>
+          <h3 class="font-bold text-lg text-indigo-700">Secure Payment</h3>
+          <p class="text-sm text-gray-600">UPI, cards and cash on delivery.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Products -->
+  <section id="products" class="p-6 sm:p-10">
+
+    <h2 class="text-3xl font-bold text-center mb-8">
+      Our Products
+    </h2>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+      <!-- Product 1 -->
+      <div class="bg-white rounded-xl shadow-md p-4 hover:shadow-xl transition">
+        <img
+          src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=500&q=80"
+          alt="College Backpack"
+          class="w-full h-48 object-cover rounded-lg">
+
+        <h3 class="text-xl font-bold mt-3">College Backpack</h3>
+        <p class="text-indigo-700 font-bold mt-1">₹799</p>
+        <p class="text-gray-500 text-sm mt-1">🔄 7 Day Replacement</p>
+
+        <button onclick="addToCart()"
+          class="mt-3 w-full bg-indigo-700 text-white py-2 rounded-lg hover:bg-indigo-800">
+          Add to Cart
+        </button>
+      </div>
+
+      <!-- Product 2 -->
+      <div class="bg-white rounded-xl shadow-md p-4 hover:shadow-xl transition">
+        <img
+          src="https://images.unsplash.com/photo-1531346878377-a5be20888e57?auto=format&fit=crop&w=500&q=80"
+          alt="Notebook"
+          class="w-full h-48 object-cover rounded-lg">
+
+        <h3 class="text-xl font-bold mt-3">Notebook</h3>
+        <p class="text-indigo-700 font-bold mt-1">₹199</p>
+        <p class="text-gray-500 text-sm mt-1">🔄 7 Day Replacement</p>
+
+        <button onclick="addToCart()"
+          class="mt-3 w-full bg-indigo-700 text-white py-2 rounded-lg hover:bg-indigo-800">
+          Add to Cart
+        </button>
+      </div>
+
+      <!-- Product 3 -->
+      <div class="bg-white rounded-xl shadow-md p-4 hover:shadow-xl transition">
+        <img
+          src="https://images.unsplash.com/photo-1602143407151-7111542de6e8?auto=format&fit=crop&w=500&q=80"
+          alt="Water Bottle"
+          class="w-full h-48 object-cover rounded-lg">
+
+        <h3 class="text-xl font-bold mt-3">Water Bottle</h3>
+        <p class="text-indigo-700 font-bold mt-1">₹349</p>
+        <p class="text-gray-500 text-sm mt-1">🔄 7 Day Replacement</p>
+
+        <button onclick="addToCart()"
+          class="mt-3 w-full bg-indigo-700 text-white py-2 rounded-lg hover:bg-indigo-800">
+          Add to Cart
+        </button>
+      </div>
+
+      <!-- Product 4 -->
+      <div class="bg-white rounded-xl shadow-md p-4 hover:shadow-xl transition">
+        <img
+          src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=500&q=80"
+          alt="Headphones"
+          class="w-full h-48 object-cover rounded-lg">
+
+        <h3 class="text-xl font-bold mt-3">Headphones</h3>
+        <p class="text-indigo-700 font-bold mt-1">₹599</p>
+        <p class="text-gray-500 text-sm mt-1">🔄 7 Day Replacement</p>
+
+        <button onclick="addToCart()"
+          class="mt-3 w-full bg-indigo-700 text-white py-2 rounded-lg hover:bg-indigo-800">
+          Add to Cart
+        </button>
+      </div>
+
+      <!-- Product 5 -->
+      <div class="bg-white rounded-xl shadow-md p-4 hover:shadow-xl transition">
+        <img
+          src="https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=500&q=80"
+          alt="Study Lamp"
+          class="w-full h-48 object-cover rounded-lg">
+
+        <h3 class="text-xl font-bold mt-3">Study Lamp</h3>
+        <p class="text-indigo-700 font-bold mt-1">₹499</p>
+        <p class="text-gray-500 text-sm mt-1">🔄 7 Day Replacement</p>
+
+        <button onclick="addToCart()"
+          class="mt-3 w-full bg-indigo-700 text-white py-2 rounded-lg hover:bg-indigo-800">
+          Add to Cart
+        </button>
+      </div>
+
+      <!-- Product 6 -->
+      <div class="bg-white rounded-xl shadow-md p-4 hover:shadow-xl transition">
+        <img
+          src="https://images.unsplash.com/photo-1587145820266-a5951ee6f620?auto=format&fit=crop&w=500&q=80"
+          alt="Calculator"
+          class="w-full h-48 object-cover rounded-lg">
+
+        <h3 class="text-xl font-bold mt-3">Calculator</h3>
+        <p class="text-indigo-700 font-bold mt-1">₹399</p>
+        <p class="text-gray-500 text-sm mt-1">🔄 7 Day Replacement</p>
+
+        <button onclick="addToCart()"
+          class="mt-3 w-full bg-indigo-700 text-white py-2 rounded-lg hover:bg-indigo-800">
+          Add to Cart
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="bg-white p-8 sm:p-12 text-center">
+
+    <h2 class="text-3xl font-bold">About CampusKart</h2>
+
+    <p class="mt-4 max-w-2xl mx-auto text-gray-600 leading-relaxed">
+      CampusKart is an online store for school and college students.
+      We sell bags, books, stationery and gadgets at affordable prices.
+      Our goal is to make student shopping simple and convenient.
+    </p>
+
+  </section>
+
+  <!-- Contact Footer -->
+  <footer id="contact" class="bg-indigo-700 text-white text-center p-8">
+
+    <h3 class="text-2xl font-bold">Contact Us</h3>
+
+    <p class="mt-3">Phone: +91 XXXXX XXXXX</p>
+    <p class="mt-2">Email: yourname@example.com</p>
+
+    <p class="mt-5 text-sm text-indigo-200">
+      &copy; 2026 CampusKart. All rights reserved.
+    </p>
+
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    // Cart
+    let count = 0;
+
+    function addToCart() {
+      count++;
+      document.getElementById("cart").textContent = count;
+    }
+
+    // Banner slider
+    const slider = document.getElementById("slider");
+    const slides = slider.querySelectorAll(".slide");
+    const dotsBox = document.getElementById("dots");
+    let current = 0;
+    let timer;
+
+    // Create dots
+    slides.forEach((_, i) => {
+      const dot = document.createElement("button");
+      dot.setAttribute("aria-label", "Go to slide " + (i + 1));
+      dot.className = "w-3 h-3 rounded-full bg-white/50 transition";
+      dot.onclick = () => { showSlide(i); restart(); };
+      dotsBox.appendChild(dot);
+    });
+    const dots = dotsBox.querySelectorAll("button");
+
+    function showSlide(n) {
+      current = (n + slides.length) % slides.length;
+      slides.forEach((s, i) => {
+        s.classList.toggle("opacity-100", i === current);
+        s.classList.toggle("opacity-0", i !== current);
+      });
+      dots.forEach((d, i) => {
+        d.classList.toggle("bg-white", i === current);
+        d.classList.toggle("bg-white/50", i !== current);
+      });
+    }
+
+    function start() { timer = setInterval(() => showSlide(current + 1), 4000); }
+    function restart() { clearInterval(timer); start(); }
+
+    document.getElementById("next").onclick = () => { showSlide(current + 1); restart(); };
+    document.getElementById("prev").onclick = () => { showSlide(current - 1); restart(); };
+
+    // Pause when mouse is over the banner
+    slider.addEventListener("mouseenter", () => clearInterval(timer));
+    slider.addEventListener("mouseleave", start);
+
+    showSlide(0);
+    start();
+  </script>
+
+</body>
+</html>
